@@ -10,7 +10,7 @@ class Cookbook
     puts "Type 'list' to view the list of recipes"
     puts "Type 'add' to add a recipe"
     puts "Type 'view' to view a recipe"
-    puts "Type 'quit' at anytime to exit"
+    puts "Type 'quit' to exit"
 
     loop do
       puts "Type a command:"
@@ -31,12 +31,14 @@ class Cookbook
         self.add()
 
       elsif cmd == "view"
-        #Run view command
+        self.list()
         puts "Enter a recipe's number to view that recipe: "
-        num = gets.chomp
+        #add Error Processesing for inputting not a number
+        num = gets.chomp.to_i
+        self.view(num)
 
       else
-        puts "You enetered an incorrect commnad: "
+        puts "You entered an incorrect command: "
 
       end
     end
@@ -57,7 +59,25 @@ class Cookbook
     end
   end
 
-  def view()
+  def view(num)
+    #Add Error Processing for num that is too high
+    recipe = @recipes[(num - 1)]
+    puts "At recipe #{recipe.name}"
+    puts "Type 'list' to view the list of ingredients"
+    puts "Type 'add' to add an ingredients"
+    puts "Type 'view' to view a recipe's steps"
+    puts "Type 'step' to add or modify a step"
+    puts "Type 'quit' to exit"
+
+    loop do
+      puts "Type a command:"
+      cmd = gets.chomp.downcase
+
+      if cmd == "quit"
+        break
+      end
+
+    end
 
   end
 
