@@ -15,4 +15,8 @@ class Recipe
     @steps = { num => step}
   end
 
+  def list()
+    puts @ingredients
+  end
+
 end

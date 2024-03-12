@@ -75,6 +75,21 @@ class Cookbook
 
       if cmd == "quit"
         break
+      elsif cmd == "list"
+        if recipe.ingredients.empty?
+          puts "There are no ingredients in the recipe"
+          puts " "
+        else
+          recipe.list()
+        end
+      elsif cmd == "add"
+        puts "Please enter an ingredient name: "
+        ingredient = gets.chomp
+        puts "Please enter an amount: "
+        amount = gets.chomp
+        recipe.add_ingredient(ingredient, amount)
+      else
+        puts "You entered an incorrect command: "
       end
 
     end
