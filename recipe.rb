@@ -8,7 +8,7 @@ class Recipe
   end
 
   def add_ingredient(ingredient, amount)
-    @ingredients = { ingredient => amount }
+    @ingredients[ingredient] = amount
   end
 
   def add_step(num, step)
@@ -16,7 +16,9 @@ class Recipe
   end
 
   def list()
-    puts @ingredients
+    @ingredients.each do |ing, amn|
+      puts "#{amn} of #{ing}"
+    end
   end
 
 end

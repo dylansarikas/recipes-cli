@@ -13,7 +13,7 @@ class Cookbook
     puts "Type 'quit' to exit"
 
     loop do
-      puts "Type a command:"
+      puts "Type a command for the cookbook: "
       cmd = gets.chomp.downcase
 
       if cmd == "quit"
@@ -67,13 +67,13 @@ class Cookbook
     puts "Type 'add' to add an ingredients"
     puts "Type 'view' to view a recipe's steps"
     puts "Type 'step' to add or modify a step"
-    puts "Type 'quit' to exit"
+    puts "Type 'back' to go back to the cookbook"
 
     loop do
-      puts "Type a command:"
+      puts "Type a command for the recipe #{recipe.name} :"
       cmd = gets.chomp.downcase
 
-      if cmd == "quit"
+      if cmd == "back"
         break
       elsif cmd == "list"
         if recipe.ingredients.empty?
@@ -84,7 +84,7 @@ class Cookbook
         end
       elsif cmd == "add"
         puts "Please enter an ingredient name: "
-        ingredient = gets.chomp
+        ingredient = gets.chomp.to_sym
         puts "Please enter an amount: "
         amount = gets.chomp
         recipe.add_ingredient(ingredient, amount)
