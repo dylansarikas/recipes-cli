@@ -70,24 +70,47 @@ class Cookbook
     puts "Type 'back' to go back to the cookbook"
 
     loop do
-      puts "Type a command for the recipe #{recipe.name} :"
+      puts "Type a command for the recipe #{recipe.name}: "
       cmd = gets.chomp.downcase
 
       if cmd == "back"
         break
+
       elsif cmd == "list"
+
         if recipe.ingredients.empty?
           puts "There are no ingredients in the recipe"
           puts " "
         else
           recipe.list()
         end
+
       elsif cmd == "add"
+
         puts "Please enter an ingredient name: "
         ingredient = gets.chomp.to_sym
         puts "Please enter an amount: "
         amount = gets.chomp
         recipe.add_ingredient(ingredient, amount)
+
+      elsif cmd == "view"
+
+        if recipe.steps.empty?
+          puts "There are no steps in the recipe"
+          puts " "
+        else
+          recipe.view()
+        end
+      
+      elsif cmd == "step"
+
+        puts "Please enter a step number: "
+        #Add Error Processing for non integers
+        num = gets.chomp.to_sym
+        puts "Please enter the step: "
+        step = gets.chomp
+        recipe.add_step(num, step)
+
       else
         puts "You entered an incorrect command: "
       end
