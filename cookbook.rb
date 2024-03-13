@@ -138,6 +138,3 @@ class Cookbook
 
 end
 
-cookbook = Cookbook.new
-
-cookbook.start
