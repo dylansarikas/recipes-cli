@@ -22,7 +22,8 @@ class Recipe
   end
 
   def view()
-    @steps.each do |num, step|
+    temp = @steps.sort.to_h # sorts the hash by key so the recipe is in order (assuming intergers were given for the step number)
+    temp.each do |num, step|
       puts "##{num}. #{step}"
     end
   end

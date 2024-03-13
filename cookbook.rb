@@ -33,7 +33,8 @@ class Cookbook
       elsif cmd == "view"
         self.list()
         puts "Enter a recipe's number to view that recipe: "
-        #add Error Processesing for inputting not a number
+        #Add Error Processesing for inputting not a number
+        #Add Error Processing for num that is too high
         num = gets.chomp.to_i
         self.view(num)
 
@@ -60,7 +61,6 @@ class Cookbook
   end
 
   def view(num)
-    #Add Error Processing for num that is too high
     recipe = @recipes[(num - 1)]
     puts "At recipe #{recipe.name}"
     puts "Type 'list' to view the list of ingredients"
@@ -104,9 +104,9 @@ class Cookbook
       
       elsif cmd == "step"
 
-        puts "Please enter a step number: "
+        puts "Please enter a step number (as an integer): "
         #Add Error Processing for non integers
-        num = gets.chomp.to_sym
+        num = gets.chomp.to_s
         puts "Please enter the step: "
         step = gets.chomp
         recipe.add_step(num, step)
