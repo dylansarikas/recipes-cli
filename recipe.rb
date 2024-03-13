@@ -28,4 +28,14 @@ class Recipe
     end
   end
 
+  def help_recipe()
+    puts "At recipe #{self.name}"
+    puts "Type 'list' to view the list of ingredients"
+    puts "Type 'add' to add an ingredients"
+    puts "Type 'view' to view a recipe's steps"
+    puts "Type 'step' to add or modify a step"
+    puts "Type 'back' to go back to the cookbook"
+    puts "Type 'help' to list out commands again"
+  end
+
 end

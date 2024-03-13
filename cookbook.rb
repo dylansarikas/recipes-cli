@@ -11,6 +11,7 @@ class Cookbook
     puts "Type 'add' to add a recipe"
     puts "Type 'view' to view a recipe"
     puts "Type 'quit' to exit"
+    puts "Type 'help' to list out commands again"
 
     loop do
       puts "Type a command for the cookbook: "
@@ -38,6 +39,9 @@ class Cookbook
         num = gets.chomp.to_i
         self.view(num)
 
+      elsif cmd == "help"
+        self.help_cookbook()
+
       else
         puts "You entered an incorrect command: "
 
@@ -60,6 +64,15 @@ class Cookbook
     end
   end
 
+  def help_cookbook()
+    puts "Let's Make a cookbook!"
+    puts "Type 'list' to view the list of recipes"
+    puts "Type 'add' to add a recipe"
+    puts "Type 'view' to view a recipe"
+    puts "Type 'quit' to exit"
+    puts "Type 'help' to list out commands again"
+  end
+
   def view(num)
     recipe = @recipes[(num - 1)]
     puts "At recipe #{recipe.name}"
@@ -68,6 +81,7 @@ class Cookbook
     puts "Type 'view' to view a recipe's steps"
     puts "Type 'step' to add or modify a step"
     puts "Type 'back' to go back to the cookbook"
+    puts "Type 'help' to list out commands again"
 
     loop do
       puts "Type a command for the recipe #{recipe.name}: "
@@ -110,6 +124,9 @@ class Cookbook
         puts "Please enter the step: "
         step = gets.chomp
         recipe.add_step(num, step)
+
+      elsif cmd == "help"
+        recipe.help_recipe()
 
       else
         puts "You entered an incorrect command: "
