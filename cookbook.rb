@@ -1,6 +1,9 @@
 require_relative "recipe"
 
 class Cookbook
+  attr_accessor :recipes
+
+
   def initialize
     @recipes = []
   end
@@ -29,7 +32,9 @@ class Cookbook
         end
       
       elsif cmd == "add"
-        self.add()
+        puts "Enter a name for the recipe: "
+        name = gets.chomp
+        self.add(name)
 
       elsif cmd == "view"
         self.list()
@@ -49,11 +54,10 @@ class Cookbook
     end
   end
 
-  def add()
-    puts "Enter a name for the recipe: "
-    name = gets.chomp
+  def add(name)
     recipe = Recipe.new(name)
     @recipes.push(recipe)
+    return recipe.name
   end
 
   def list()
@@ -62,6 +66,7 @@ class Cookbook
       puts "#{count}. #{@recipes[(count - 1)].name}"  #Because Count starts at 1 and not 0, this must be corrected when listing the array
       count = count + 1
     end
+    return @recipes.length
   end
 
   def help_cookbook()
@@ -137,4 +142,3 @@ class Cookbook
   end
 
 end
-
