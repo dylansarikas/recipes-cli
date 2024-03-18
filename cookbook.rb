@@ -37,12 +37,17 @@ class Cookbook
         self.add(name)
 
       elsif cmd == "view"
-        self.list()
-        puts "Enter a recipe's number to view that recipe: "
+        if @recipes.empty?
+          puts "There are no recipes in the cookbook"
+          puts " "
+        else
+          self.list()
+          puts "Enter a recipe's number to view that recipe: "
         #Add Error Processesing for inputting not a number
         #Add Error Processing for num that is too high
-        num = gets.chomp.to_i
-        self.view(num)
+          num = gets.chomp.to_i
+          self.view(num)
+        end
 
       elsif cmd == "help"
         self.help_cookbook()
