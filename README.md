@@ -1,5 +1,11 @@
-# ruby-cli-template
+# Cookbook CLI App
 
-Use this repository as a template for your Ruby CLI (command line interface) project.
+This is a command line interface project that tries to model filling out a cookbook and creating recipes.
 
-- Ruby version: `3.2.1`
+## Usage
+
+Run `ruby app.rb` in the terminal
+
+Use the command `help` to replay all available commands
+
+When in an individual recipe, use `back` to return to the cookbook
