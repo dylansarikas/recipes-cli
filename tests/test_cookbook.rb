@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './app.rb'
+require './cookbook.rb'
 
 class TestApp < Minitest::Test
   def setup
